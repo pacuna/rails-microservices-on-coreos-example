@@ -1,0 +1,305 @@
+
+
+Started GET "/" for ::1 at 2015-05-04 22:03:25 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 16ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateComments (20150506002400)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150506002400"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("author_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["author_id", 1], ["body", "this is the first post"], ["created_at", "2015-05-06 00:27:06.004188"], ["updated_at", "2015-05-06 00:27:06.004188"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("author_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["author_id", 1], ["body", "this is the second post"], ["created_at", "2015-05-06 00:27:12.290654"], ["updated_at", "2015-05-06 00:27:12.290654"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("author_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["author_id", 2], ["body", "this is the third post"], ["created_at", "2015-05-06 00:27:21.679956"], ["updated_at", "2015-05-06 00:27:21.679956"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for ::1 at 2015-05-05 21:27:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.1ms)
+Completed 200 OK in 12ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments" for ::1 at 2015-05-05 21:27:33 -0300
+
+ActionController::RoutingError (The controller-level `respond_to' feature has been extracted to the `responders` gem. Add it to your Gemfile to continue using this feature:
+  gem 'responders', '~> 2.0'
+Consult the Rails upgrade guide for details.):
+  app/controllers/comments_controller.rb:2:in `<class:CommentsController>'
+  app/controllers/comments_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.1ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (79.0ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (43.7ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (99.7ms)
+
+
+Started GET "/comments" for ::1 at 2015-05-05 21:28:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#index as JSON
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"
+Completed 200 OK in 30ms (Views: 6.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/comments" for ::1 at 2015-05-05 21:28:10 -0300
+Processing by CommentsController#index as JSON
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comments/1" for ::1 at 2015-05-05 21:28:13 -0300
+Processing by CommentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments" for ::1 at 2015-05-05 21:29:08 -0300
+Processing by CommentsController#create as JSON
+  Parameters: {"author_id"=>"2", "body"=>"This is the fourth post", "comment"=>{"author_id"=>"2", "body"=>"This is the fourth post"}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("author_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["author_id", 2], ["body", "This is the fourth post"], ["created_at", "2015-05-06 00:29:08.703589"], ["updated_at", "2015-05-06 00:29:08.703589"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 10ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/comments/" for ::1 at 2015-05-05 21:29:11 -0300
+Processing by CommentsController#index as JSON
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments" for ::1 at 2015-05-05 21:34:08 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#index as JSON
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"
+Completed 200 OK in 21ms (Views: 5.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:34:15 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?[0m  [["author_id", 1]]
+Completed 200 OK in 16ms (Views: 5.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comments/by_author/2" for ::1 at 2015-05-05 21:34:20 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"2"}
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 2]]
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comments/by_author/3" for ::1 at 2015-05-05 21:34:22 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"3"}
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?[0m  [["author_id", 3]]
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:34:24 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 1]]
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:48:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 1]]
+Completed 200 OK in 27ms (Views: 8.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:48:33 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?[0m  [["author_id", 1]]
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:48:46 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 1]]
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:48:49 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?[0m  [["author_id", 1]]
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:48:54 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 1]]
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-05 21:49:27 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"1"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 1]]
+Completed 200 OK in 26ms (Views: 7.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comments/by_author/2" for ::1 at 2015-05-05 21:49:33 -0300
+Processing by CommentsController#by_author as JSON
+  Parameters: {"author_id"=>"2"}
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?[0m  [["author_id", 2]]
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comments/1" for ::1 at 2015-05-06 21:15:50 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mComment Load (1.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 51ms (Views: 1.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-06 21:18:49 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#by_author as HTML
+  Parameters: {"author_id"=>"1"}
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 1]]
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.8ms)
+
+NoMethodError (undefined method `to_msgpack' for #<Comment:0x007fa8810e2d20>):
+  app/controllers/comments_controller.rb:23:in `by_author'
+
+
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.9ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (49.9ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (115.7ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-06 21:19:53 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#by_author as HTML
+  Parameters: {"author_id"=>"1"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?  [["author_id", 1]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.5ms)
+
+NoMethodError (undefined method `to_msgpack' for #<Comment:0x007fba4bb468d0>):
+  app/controllers/comments_controller.rb:24:in `by_author'
+
+
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.8ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (44.6ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (100.4ms)
+
+
+Started GET "/comments/by_author/1" for ::1 at 2015-05-06 21:19:55 -0300
+Processing by CommentsController#by_author as HTML
+  Parameters: {"author_id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."author_id" = ?[0m  [["author_id", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `to_msgpack' for #<Comment:0x007fba4a20a718>):
+  app/controllers/comments_controller.rb:24:in `by_author'
+
+
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.2ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (44.0ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pacuna/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (97.1ms)
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:20:01 -0300
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:20:04 -0300
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:20:11 -0300
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:20:15 -0300
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1[0m
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:20:37 -0300
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:20:56 -0300
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:21:01 -0300
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:22:03 -0300
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:22:05 -0300
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:22:22 -0300
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:22:25 -0300
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1[0m
+
+
+Started PUT "/comments/by_author/console/repl_sessions/5799b740eb61d22b3590bdd93e6b5cd4" for ::1 at 2015-05-06 21:22:27 -0300
+  [1m[35mComment Load (0.1ms)[0m  SELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  ORDER BY "comments"."id" ASC LIMIT 1
