@@ -1,0 +1,13 @@
+[Unit]
+Description=UserService
+After=docker.service
+After=comment.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill user-service
+ExecStartPre=-/usr/bin/docker rm user-service
+ExecStartPre=/usr/bin/docker build -t user-service /home/core/share/user-service
+ExecStart=/bin/sh -c "/usr/bin/docker run --name user-service -e COMMENTS_SERVICE_HOST=$(/usr/bin/etcdctl get /services/comment/dfw) -p 3000:3000 user-service"
+ExecStop=/usr/bin/docker stop user-service 

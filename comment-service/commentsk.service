@@ -1,0 +1,26 @@
+[Unit]
+Description=Comment Service Sidekick
+Requires=docker.service
+Requires=etcd.service
+ 
+After=docker.service
+After=etcd.service
+After=comment.service
+BindsTo=comment.service
+ 
+[Service]
+EnvironmentFile=/etc/environment
+User=core
+ 
+TimeoutStartSec=0
+ExecStart=/bin/bash -c '\
+  while true; do \
+    etcdctl set /services/comment/dfw ${COREOS_PRIVATE_IPV4} --ttl 10; \
+    sleep 5; \
+    done'
+ 
+ExecStop=/usr/bin/etcdctl rm /services/comment/dfw
+ 
+ 
+[X-Fleet]
+MachineOf=comment.service
