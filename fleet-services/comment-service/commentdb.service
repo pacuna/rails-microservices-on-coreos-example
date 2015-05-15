@@ -1,0 +1,13 @@
+[Unit]
+Description=CommentDBService
+After=docker.service
+Requires=docker.service
+Requires=commentdbsk.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill comment-service-db
+ExecStartPre=-/usr/bin/docker rm comment-service-db
+ExecStart=/usr/bin/docker run --name comment-service-db -e POSTGRES_PASSWORD=secretpassword -p 5432:5432 postgres
+ExecStop=/usr/bin/docker stop comment-service-db 
