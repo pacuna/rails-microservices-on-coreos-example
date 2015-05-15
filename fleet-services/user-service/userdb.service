@@ -1,0 +1,13 @@
+[Unit]
+Description=UserDBService
+After=docker.service
+Requires=docker.service
+Requires=userdbsk.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill user-service-db
+ExecStartPre=-/usr/bin/docker rm user-service-db
+ExecStart=/usr/bin/docker run --name user-service-db -e POSTGRES_PASSWORD=secretpassword -p 5432:5432 postgres
+ExecStop=/usr/bin/docker stop user-service-db 

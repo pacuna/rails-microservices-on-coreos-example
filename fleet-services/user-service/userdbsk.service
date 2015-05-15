@@ -1,0 +1,25 @@
+[Unit]
+Description=User Service DB Sidekick
+Requires=docker.service
+Requires=etcd.service
+ 
+After=docker.service
+After=etcd.service
+After=userdb.service
+BindsTo=userdb.service
+ 
+[Service]
+EnvironmentFile=/etc/environment
+User=core
+ 
+TimeoutStartSec=0
+ExecStart=/bin/bash -c '\
+  while true; do \
+    etcdctl set /services/userdb/host ${COREOS_PRIVATE_IPV4} --ttl 10; \
+    sleep 5; \
+    done'
+ 
+ExecStop=/usr/bin/etcdctl rm /services/userdb/host
+ 
+[X-Fleet]
+MachineOf=userdb.service
