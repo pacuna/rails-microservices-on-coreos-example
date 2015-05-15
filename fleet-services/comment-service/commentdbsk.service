@@ -20,8 +20,6 @@ ExecStart=/bin/bash -c '\
     done'
  
 ExecStop=/usr/bin/etcdctl rm /services/commentdb/host
-ExecStop=/usr/bin/etcdctl rm /services/commentdb/password
- 
  
 [X-Fleet]
 MachineOf=commentdb.service
