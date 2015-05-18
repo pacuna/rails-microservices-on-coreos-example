@@ -9,5 +9,5 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill user-service
 ExecStartPre=-/usr/bin/docker rm user-service
 ExecStartPre=/usr/bin/docker build -t user-service /home/core/share/user-service
-ExecStart=/bin/sh -c "/usr/bin/docker run --name user-service -e COMMENTS_SERVICE_HOST=$(/usr/bin/etcdctl get /services/comment/dfw) -e POSTGRES_HOST=$(/usr/bin/etcdctl get /services/userdb/host) -p 3000:3000 user-service"
+ExecStart=/bin/sh -c "/usr/bin/docker run --name user-service -e PASSENGER_APP_ENV=development -e COMMENTS_SERVICE_HOST=$(/usr/bin/etcdctl get /services/comment/dfw) -e POSTGRES_HOST=$(/usr/bin/etcdctl get /services/userdb/host) -p 80:80 user-service"
 ExecStop=/usr/bin/docker stop user-service 
