@@ -11,5 +11,5 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill comment-service
 ExecStartPre=-/usr/bin/docker rm comment-service
 ExecStartPre=/usr/bin/docker build -t comment-service /home/core/share/comment-service
-ExecStart=/bin/sh -c "/usr/bin/docker run --name comment-service -e POSTGRES_HOST=$(/usr/bin/etcdctl get /services/commentdb/host) -p 3001:3000 comment-service"
+ExecStart=/bin/sh -c "/usr/bin/docker run --name comment-service -e PASSENGER_APP_ENV=development -e POSTGRES_HOST=$(/usr/bin/etcdctl get /services/commentdb/host) -p 80:80 comment-service"
 ExecStop=/usr/bin/docker stop comment-service 
